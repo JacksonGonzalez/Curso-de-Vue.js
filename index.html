@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app">
-        <template v-if="mostrar">
+        <!-- <template v-if="mostrar">
             <h1>{{titulo | uppercase }}</h1>
             <h2>{{subtitulo | lowercase}}</h2>
         </template>
@@ -16,7 +16,11 @@
         <div v-show="!mostrar">
             Esto esta oculto
         </div>
-        <a v-if="mostrar" v-bind:href="url" target="_blank">{{pagina}}</a>
+        <a v-if="mostrar" v-bind:href="url" target="_blank">{{pagina}}</a> -->
+
+        El contador esta en {{contador}}
+        <button v-on:click="sumar">Sumar 1</button>
+        <button v-on:click="restar">Restar 1</button>
     </div>
 
 
@@ -25,16 +29,26 @@
         let app = new Vue({
             el: '#app',
             data: {
-                nombre: 'Jackson',
-                url: 'https://www.google.com',
-                pagina: 'Ir a google',
-                mostrar: true,
-                titulo: 'Estas en Platsmoo',
-                subtitulo: ' Praticando Filtros de Vue.js'
+                // nombre: 'Jackson',
+                // url: 'https://www.google.com',
+                // pagina: 'Ir a google',
+                // mostrar: true,
+                // titulo: 'Estas en Platsmoo',
+                // subtitulo: ' Praticando Filtros de Vue.js'
+                contador: 0
+
             },
-            filters: {
-                uppercase: function (str) { return str.toUpperCase()},
-                lowercase: function (str) {return str.toLowerCase()}
+            // filters: {
+            //     uppercase: function (str) { return str.toUpperCase()},
+            //     lowercase: function (str) {return str.toLowerCase()}
+            // }
+            methods: {
+                sumar: function () {
+                    this.contador++
+                },
+                restar: function () {
+                    this.contador--
+                }
             }
         })
     </script>
